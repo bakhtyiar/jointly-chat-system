@@ -1,7 +1,11 @@
 import Head from 'next/head'
-import styles from '@/styles/Index.module.scss'
-import PromoLayout from "@/components/promoLayout/promoLayout";
+import PromoLayout from "@/components/PromoLayout/PromoLayout";
 import React from "react";
+import styled from "@emotion/styled";
+
+const StyledMain = styled.main`
+  align-items: center;
+`
 
 export default function Index() {
     return (
@@ -13,9 +17,9 @@ export default function Index() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <PromoLayout>
-                <main className={styles.main}>
+                <StyledMain>
                     <h1>Index page</h1>
-                </main>
+                </StyledMain>
             </PromoLayout>
         </>
     )

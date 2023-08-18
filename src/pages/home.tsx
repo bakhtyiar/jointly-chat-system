@@ -1,5 +1,5 @@
 import React from 'react';
-import PromoLayout from "@/components/promoLayout/promoLayout";
+import PromoLayout from "@/components/PromoLayout/PromoLayout";
 
 const Home = () => {
     return (

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import styles from '@/styles/Index.module.scss'
-import PromoLayout from "@/components/PromoLayout/PromoLayout";
 import React from "react";
+import AppLayout from "@/components/AppLayout/AppLayout";
 
-export default function Pricing() {
+export default function Index() { //page as a link for redirect to initial application route
     return (
         <>
             <Head>
@@ -12,11 +12,11 @@ export default function Pricing() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <PromoLayout>
+            <AppLayout>
                 <main className={styles.main}>
-                    <h1>Pricing</h1>
+                    <h1>Index page</h1>
                 </main>
-            </PromoLayout>
+            </AppLayout>
         </>
     )
 }

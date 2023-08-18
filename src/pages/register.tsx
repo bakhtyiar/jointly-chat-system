@@ -1,9 +1,9 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import {TextField, Button} from "@mui/material";
 import styles from "@/styles/login.module.scss"
-import PromoLayout from "@/components/promoLayout/promoLayout";
+import PromoLayout from "@/components/PromoLayout/PromoLayout";
 
 const schema = Yup.object({
     email: Yup.string().email().required(),
@@ -36,7 +36,7 @@ const Register = () => {
                               touched
                           }) => (
                             <Form className={styles["form"]}>
-                                <h1 className={styles["form-header"]}>Register</h1>
+                                <h1 className={styles["form-AppHeader"]}>Register</h1>
                                 <TextField
                                     type="email"
                                     label="Email"

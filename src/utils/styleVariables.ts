@@ -1,0 +1,11 @@
+export const pt0 = '1px';
+export const pt1 = '2px';
+export const pt2 = '4px';
+export const pt3 = '8px';
+export const pt4 = '16px';
+export const pt5 = '32px';
+export const pt6 = '64px';
+export const pt7 = '128px';
+export const pt8 = '256px';
+export const pt9 = '512px';
+export const borderRadius = '12px';
