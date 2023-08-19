@@ -1,7 +1,11 @@
+import styled from "@emotion/styled";
 import Head from 'next/head'
-import styles from '@/styles/Index.module.scss'
 import PromoLayout from "@/components/PromoLayout/PromoLayout";
 import React from "react";
+
+const StyledMain = styled.main`
+  align-items: center;
+`
 
 export default function Pricing() {
     return (
@@ -13,9 +17,9 @@ export default function Pricing() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <PromoLayout>
-                <main className={styles.main}>
+                <StyledMain>
                     <h1>Pricing</h1>
-                </main>
+                </StyledMain>
             </PromoLayout>
         </>
     )
