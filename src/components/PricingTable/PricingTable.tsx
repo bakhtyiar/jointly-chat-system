@@ -1,4 +1,4 @@
-import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import {getAllPricingData, IPricingTableRowData} from "@/services/pricing";
@@ -12,7 +12,7 @@ function convertCellData(plan: string | boolean) {
         return plan;
     }
 }
-
+//todo : implement buttons logic
 export const PricingTable = () => {
     let [pricingData, setPricingData] = useState<IPricingTableRowData[]>([])
     useEffect(() => {
@@ -52,6 +52,19 @@ export const PricingTable = () => {
                                 align="center">{convertCellData(row.corporativeSubscribition)}</TableCell>
                         </TableRow>
                     ))}
+                    <TableRow
+                        key='buttons'
+                        sx={{'&:last-child td, &:last-child th': {border: 0}}}
+                    >
+                        <TableCell component="th" scope="row">
+                        </TableCell>
+                        <TableCell
+                            align="center"><Button>Create account</Button></TableCell>
+                        <TableCell
+                            align="center"><Button>Get premium</Button></TableCell>
+                        <TableCell
+                            align="center"><Button>Get super premium</Button></TableCell>
+                    </TableRow>
                 </TableBody>
             </Table>
         </TableContainer>
