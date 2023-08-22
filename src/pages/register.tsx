@@ -2,8 +2,15 @@ import React from 'react';
 import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import {TextField, Button} from "@mui/material";
-import styles from "@/styles/login.module.scss"
 import PromoLayout from "@/components/PromoLayout/PromoLayout";
+import styled from "@emotion/styled";
+import {pt4} from "@/utils/styleVariables";
+
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  gap: ${pt4};
+`
 
 const schema = Yup.object({
     email: Yup.string().email().required(),
@@ -35,8 +42,8 @@ const Register = () => {
                               errors,
                               touched
                           }) => (
-                            <Form className={styles["form"]}>
-                                <h1 className={styles["form-AppHeader"]}>Register</h1>
+                            <StyledForm>
+                                <h1>Register</h1>
                                 <TextField
                                     type="email"
                                     label="Email"
@@ -70,7 +77,7 @@ const Register = () => {
                                 <Button type="submit" variant={"contained"} disabled={isSubmitting}>
                                     Submit
                                 </Button>
-                            </Form>
+                            </StyledForm>
                         )}
                     </Formik>
                 </main>
