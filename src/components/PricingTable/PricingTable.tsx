@@ -30,9 +30,9 @@ export const PricingTable = () => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Option</TableCell>
-                        <TableCell align="right">Free</TableCell>
-                        <TableCell align="right">Premium</TableCell>
-                        <TableCell align="right">Super premium</TableCell>
+                        <TableCell align="center">Free</TableCell>
+                        <TableCell align="center">Premium</TableCell>
+                        <TableCell align="center">Super premium</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -45,11 +45,11 @@ export const PricingTable = () => {
                                 {row.optionName}
                             </TableCell>
                             <TableCell
-                                align="right">{convertCellData(row.freeVer)}</TableCell>
+                                align="center">{convertCellData(row.freeVer)}</TableCell>
                             <TableCell
-                                align="right">{convertCellData(row.individualSubscribition)}</TableCell>
+                                align="center">{convertCellData(row.individualSubscribition)}</TableCell>
                             <TableCell
-                                align="right">{convertCellData(row.corporativeSubscribition)}</TableCell>
+                                align="center">{convertCellData(row.corporativeSubscribition)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
