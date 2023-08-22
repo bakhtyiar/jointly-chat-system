@@ -3,7 +3,7 @@ import PromoLayout from "@/components/PromoLayout/PromoLayout";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {getCommunitiesPaged, ICommunity} from "@/services/communities";
 import {CommunityCard} from "@/components/CommunityCard/CommunityCard";
-import {Box, CircularProgress, Container, Typography} from "@mui/material";
+import {Box, CircularProgress, Typography} from "@mui/material";
 import {pt3} from "@/utils/styleVariables";
 //todo : add search function
 //todo : move header to left column and rotate 90 deg
@@ -21,7 +21,7 @@ const Communities = () => {
             })
         }
     }
-
+    //todo : check is it can be w/out page dependency or at all w/out useEffect
     useEffect(() => {
         fetchData();
     }, [page])
