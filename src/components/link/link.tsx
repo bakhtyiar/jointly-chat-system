@@ -5,7 +5,7 @@ import NextLink from "next/link";
 interface Props {
     NextProps: React.ReactElement;
     MUIProps: React.ReactElement;
-    childer: React.ReactNode;
+    children: React.ReactNode;
 }
 
 const Link = ({NextProps, MUIProps, children}: Props) => {
