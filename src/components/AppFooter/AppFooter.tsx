@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from "@emotion/styled/dist/emotion-styled.cjs";
 import {pt6} from "@/utils/styleVariables";
+import styled from "@emotion/styled";
 
 const StyledFooter = styled.footer`
   width: 100%;
