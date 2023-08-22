@@ -5,6 +5,9 @@ export const routes = {
     home: {
         path: "/home",
     },
+    app: {
+        path: "/app",
+    },
     login: {
         path: "/login",
     },
