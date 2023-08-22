@@ -2,6 +2,11 @@ import Head from 'next/head'
 import PromoLayout from "@/components/PromoLayout/PromoLayout";
 import React from "react";
 import styled from "@emotion/styled";
+import {Button, Stack} from "@mui/material";
+import {routes} from "@/utils/routes";
+import Link from "next/link";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import Groups3Icon from '@mui/icons-material/Groups3';
 
 const StyledMain = styled.main`
   align-items: center;
@@ -19,6 +24,12 @@ export default function Index() {
             <PromoLayout>
                 <StyledMain>
                     <h1>Index page</h1>
+                    <Stack direction="row" spacing={2}>
+                        <Link href={routes.communities.path}><Button variant="text" color="primary" size="large"
+                                                             endIcon={<Groups3Icon/>}>View communities</Button></Link>
+                        <Link href={routes.app.path}><Button variant="contained" color="primary" size="large" disableElevation={true}
+                                                             endIcon={<ArrowRightAltIcon/>}>app</Button></Link>
+                    </Stack>
                 </StyledMain>
             </PromoLayout>
         </>
