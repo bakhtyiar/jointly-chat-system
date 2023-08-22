@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import MUILink from "@mui/material/link";
 import NextLink from "next/link";
 
