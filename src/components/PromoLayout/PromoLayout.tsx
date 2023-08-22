@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import PromoFooter from "@/components/PromoFooter/PromoFooter";
 import PromoHeader from "@/components/PromoHeader/PromoHeader";
 
-const PromoLayout = ({ children }) => {
+interface Props {
+    children?: ReactNode
+    // any props that come into the component
+}
+
+const PromoLayout = ({ children }: Props) => {
     return (
         <>
             <PromoHeader></PromoHeader>
