@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PromoLayout from "@/components/PromoLayout/PromoLayout";
+import {routes} from "@/utils/routes";
+import {useRouter} from "next/router";
+import {CircularProgress} from "@mui/material";
+import styled from "@emotion/styled";
+
+const StyledMain = styled.main`
+  align-items: center;
+`
 
 const Home = () => {
+    const {replace} = useRouter();
+    useEffect(() => {
+        replace(routes.index.path);
+    })
     return (
         <>
             <PromoLayout>
-                <h1>Home page</h1>
+                <StyledMain>
+                    <CircularProgress color="primary" variant="indeterminate"/>
+                </StyledMain>
             </PromoLayout>
         </>
     );
