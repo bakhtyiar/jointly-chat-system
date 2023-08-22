@@ -1,7 +1,11 @@
 import Head from 'next/head'
-import styles from '@/styles/Index.module.scss'
 import React from "react";
 import AppLayout from "@/components/AppLayout/AppLayout";
+import styled from "@emotion/styled";
+
+const StyledMain = styled.main`
+  align-items: center;
+`
 
 export default function Index() { //page as a link for redirect to initial application route
     return (
@@ -13,9 +17,9 @@ export default function Index() { //page as a link for redirect to initial appli
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <AppLayout>
-                <main className={styles.main}>
+                <StyledMain>
                     <h1>Index page</h1>
-                </main>
+                </StyledMain>
             </AppLayout>
         </>
     )
