@@ -25,8 +25,8 @@ export const PricingTable = () => {
     }, [])
 
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{minWidth: 650}} aria-label="simple table">
+        <TableContainer sx={{maxWidth: 720}} component={Paper}>
+            <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Option</TableCell>
