@@ -5,6 +5,8 @@ import styled from "@emotion/styled";
 
 const StyledMain = styled.main`
   align-items: center;
+  height: 100vh;
+  overflow: hidden;
 `
 
 export default function Index() { //page as a link for redirect to initial application route
