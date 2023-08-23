@@ -3,7 +3,7 @@ import type {AppProps} from 'next/app'
 import {createTheme, CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
 import {SessionProvider} from "next-auth/react"
 import {createContext, useMemo, useState} from "react";
-
+//todo: optimize mui icons package (try to use lazy load or treeshaking idk)
 export const ColorModeContext = createContext({
     toggleColorMode: () => {
     }
