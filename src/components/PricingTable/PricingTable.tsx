@@ -1,4 +1,4 @@
-import {Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import {getAllPricingData, IPricingTableRowData} from "@/services/pricing";
@@ -8,16 +8,15 @@ function convertCellData(plan: string | boolean) {
     if (typeof plan === 'boolean') {
         return plan ? <CheckIcon color="success"/> : <CloseIcon color="error"/>;
     }
-    if (typeof plan === 'string') {
-        return plan;
-    }
+    return plan;
 }
+
 //todo : implement buttons logic
 export const PricingTable = () => {
     let [pricingData, setPricingData] = useState<IPricingTableRowData[]>([])
     useEffect(() => {
         const fetch = async () => {
-            let { data } = await getAllPricingData();
+            let {data} = await getAllPricingData();
             if (data)
                 setPricingData(data);
         }
@@ -25,8 +24,8 @@ export const PricingTable = () => {
     }, [])
 
     return (
-        <TableContainer sx={{maxWidth: 720}} component={Paper}>
-            <Table aria-label="simple table">
+        <TableContainer sx={{maxWidth: 720}}>
+            <Table aria-label="pricing table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Option</TableCell>
