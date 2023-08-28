@@ -2,14 +2,39 @@ import Head from 'next/head'
 import React from "react";
 import AppLayout from "@/components/AppLayout/AppLayout";
 import styled from "@emotion/styled";
+import {Box, Button, Grid} from "@mui/material";
+import {ChatList} from "@/components/ChatList/ChatList";
+import {MessagesList} from "@/components/MessagesList/MessagesList";
+import {ChatInput} from "@/components/ChatInput/ChatInput";
+import {pt3, pt4} from "@/utils/styleVariables";
+import {ChatHeader} from "@/components/ChatHeader/ChatHeader";
+import {ChatMedia} from "@/components/ChatMedia/ChatMedia";
 
 const StyledMain = styled.main`
-  align-items: center;
+  justify-content: start;
   height: 100vh;
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 0;
+  overflow-y: auto;
+`
+
+const StyledFriendsButton = styled(Button)`
+  width: 100%;
+  margin-top: ${pt3};
 `
 
 export default function Index() { //page as a link for redirect to initial application route
+    const [openMedia, setOpenMedia] = React.useState(false);
+
+    const handleDrawerOpen = () => {
+        setOpenMedia(true);
+    };
+
+    const handleDrawerClose = () => {
+        setOpenMedia(false);
+    };
     return (
         <>
             <Head>
@@ -20,7 +45,35 @@ export default function Index() { //page as a link for redirect to initial appli
             </Head>
             <AppLayout>
                 <StyledMain>
-                    <h1>Index page</h1>
+                    <Box
+                        sx={{
+                            height: '100%',
+                            overflowY: 'hidden',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            flexShrink: "1",
+                        }}
+                    >
+                        <StyledFriendsButton variant="text">Friends</StyledFriendsButton>
+                        <ChatList/>
+                    </Box>
+                    <Box
+                        sx={{
+                            height: '100%',
+                            overflowY: 'hidden',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            flexGrow: '1',
+                            padding: '0'
+                        }}
+                    >
+                        <ChatHeader handleDrawerOpen={handleDrawerOpen}/>
+                        <MessagesList/>
+                        <ChatInput/>
+                    </Box>
+                    <Box sx={{width: 'fit-content'}}>
+                        {openMedia && <ChatMedia handleDrawerClose={handleDrawerClose} isOpen={openMedia}/>}
+                    </Box>
                 </StyledMain>
             </AppLayout>
         </>
