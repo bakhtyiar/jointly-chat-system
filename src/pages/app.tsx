@@ -71,9 +71,7 @@ export default function Index() { //page as a link for redirect to initial appli
                         <MessagesList/>
                         <ChatInput/>
                     </Box>
-                    <Box>
-                        {openMedia && <ChatMedia handleDrawerClose={handleDrawerClose} isOpen={openMedia}/>}
-                    </Box>
+                    {openMedia && <ChatMedia handleDrawerClose={handleDrawerClose} isOpen={openMedia}/>}
                 </StyledMain>
             </AppLayout>
         </>
