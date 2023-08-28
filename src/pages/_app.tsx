@@ -26,6 +26,28 @@ export default function App({Component, pageProps: {session, ...pageProps}}: App
             createTheme({
                 palette: {
                     mode: mode,
+                    bgc: {
+                        dimmed: mode === 'light' ? grey[100] : grey[900],
+                        contrast: mode === 'light' ? grey[200] : grey[800],
+                    }
+                },
+                components: {
+                    MuiCssBaseline: {
+                        styleOverrides: `
+                        *::-webkit-scrollbar {
+                            width: 4px;
+                        }
+
+                        *::-webkit-scrollbar-track {
+                            background-color: ${mode === 'light' ? grey[200] : grey[800]};
+                        }
+
+                        *::-webkit-scrollbar-thumb {
+                            background-color: ${mode === 'light' ? grey[500] : grey[600]};
+                            border-radius: 3px;
+                        }
+                      `,
+                    },
                 },
             }),
         [mode],
