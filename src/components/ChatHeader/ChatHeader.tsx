@@ -1,11 +1,11 @@
-import {ButtonBase, IconButton, Paper, Typography, useTheme} from "@mui/material";
+import {Box, ButtonBase, IconButton, Typography, useTheme} from "@mui/material";
 import {pt2, pt4, pt6} from "@/utils/styleVariables";
 import CloseIcon from '@mui/icons-material/Close';
 
 export const ChatHeader = ({handleDrawerOpen}) => {
     const theme = useTheme();
     return (
-        <Paper sx={{
+        <Box sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -35,6 +35,6 @@ export const ChatHeader = ({handleDrawerOpen}) => {
                 <Typography variant="caption">77 users</Typography>
             </ButtonBase>
             <IconButton><CloseIcon/></IconButton>
-        </Paper>
+        </Box>
     );
 };

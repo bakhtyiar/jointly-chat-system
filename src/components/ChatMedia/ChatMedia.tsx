@@ -10,6 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import {TabPanel} from "@/components/TabPanel/TabPanel";
 import React from "react";
 import {tabA11yProps} from "@/utils/a11y";
+import {pt4} from "@/utils/styleVariables";
 
 
 const DrawerHeader = styled('div')(() => ({
@@ -28,30 +29,27 @@ export const ChatMedia = ({handleDrawerClose, isOpen}) => {
 
     return (
         <Drawer
-            sx={{
-                width: '240px',
-                height: '100%',
-                flexShrink: 0,
-                '& .MuiDrawer-paper': {
-                    width: '240px',
-                },
-            }}
             variant="persistent"
             anchor="right"
             open={isOpen}
         >
-            <DrawerHeader sx={{
-                display: 'flex',
-                justifyContent: 'end',
-            }}>
-                <Typography variant="subtitle1">Chat's documents</Typography>
-                <IconButton onClick={handleDrawerClose}>
-                    <CloseIcon/>
-                </IconButton>
+            <DrawerHeader>
+                <Box sx={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                    <Typography variant="subtitle1" sx={{paddingLeft: pt4}}>Media</Typography>
+                    <IconButton onClick={handleDrawerClose}>
+                        <CloseIcon/>
+                    </IconButton>
+                </Box>
             </DrawerHeader>
             <Divider/>
             <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                <Tabs value={value} onChange={handleChange} aria-label="Chat's media" variant="scrollable"   scrollButtons="auto">
+                <Tabs value={value} onChange={handleChange} aria-label="Chat's media" variant="scrollable"
+                      scrollButtons="auto">
                     <Tab label="Photo & video" {...tabA11yProps(0)}/>
                     <Tab label="Audio" {...tabA11yProps(1)}/>
                     <Tab label="Files" {...tabA11yProps(2)}/>
