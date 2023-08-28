@@ -1,5 +1,5 @@
 import {ButtonBase, IconButton, Paper, Typography, useTheme} from "@mui/material";
-import {pt2, pt4} from "@/utils/styleVariables";
+import {pt2, pt4, pt6} from "@/utils/styleVariables";
 import CloseIcon from '@mui/icons-material/Close';
 
 export const ChatHeader = ({handleDrawerOpen}) => {
@@ -12,22 +12,24 @@ export const ChatHeader = ({handleDrawerOpen}) => {
             paddingRight: pt4,
             borderRadius: 0,
         }} elevation={0}
-               onClick={handleDrawerOpen}
         >
             <ButtonBase sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'start',
-                width: '100%',
-                marginRight: pt4,
-                padding: `${pt2} ${pt4}`,
+                width: 'fit-content',
+                paddingTop: pt2,
+                paddingRight: pt6,
+                paddingBottom: pt2,
+                paddingLeft: pt4,
                 borderRadius: pt2,
+                overflowX: 'hidden',
                 transition: '0.3s',
                 '&:hover': {
-                    backgroundColor: theme.palette.bgc.dimmed,
+                    backgroundColor: theme.palette["bgc"].dimmed,
                 },
-            }}
+            }} onClick={handleDrawerOpen}
             >
                 <Typography variant="subtitle1">Chatname</Typography>
                 <Typography variant="caption">77 users</Typography>
