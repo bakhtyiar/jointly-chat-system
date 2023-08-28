@@ -2,11 +2,11 @@ import Head from 'next/head'
 import React from "react";
 import AppLayout from "@/components/AppLayout/AppLayout";
 import styled from "@emotion/styled";
-import {Box, Button, Grid} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import {ChatList} from "@/components/ChatList/ChatList";
 import {MessagesList} from "@/components/MessagesList/MessagesList";
 import {ChatInput} from "@/components/ChatInput/ChatInput";
-import {pt3, pt4} from "@/utils/styleVariables";
+import {pt3} from "@/utils/styleVariables";
 import {ChatHeader} from "@/components/ChatHeader/ChatHeader";
 import {ChatMedia} from "@/components/ChatMedia/ChatMedia";
 
