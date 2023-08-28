@@ -11,6 +11,7 @@ import {TabPanel} from "@/components/TabPanel/TabPanel";
 import React from "react";
 import {tabA11yProps} from "@/utils/a11y";
 import {pt3, pt4} from "@/utils/styleVariables";
+import {ImageGrid} from "@/components/ImageGrid/ImageGrid";
 
 
 const DrawerHeader = styled('div')(() => ({
@@ -33,19 +34,17 @@ export const ChatMedia = ({handleDrawerClose, isOpen}) => {
             anchor="right"
             open={isOpen}
         >
-            <DrawerHeader>
-                <Box sx={{
-                    width: '100%',
-                    padding: pt3,
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                }}>
-                    <Typography variant="subtitle1" sx={{paddingLeft: pt4}}>Media</Typography>
-                    <IconButton onClick={handleDrawerClose}>
-                        <CloseIcon/>
-                    </IconButton>
-                </Box>
+            <DrawerHeader style={{
+                width: '100%',
+                padding: pt3,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+            }}>
+                <Typography variant="subtitle1" sx={{paddingLeft: pt4}}>Media</Typography>
+                <IconButton onClick={handleDrawerClose}>
+                    <CloseIcon/>
+                </IconButton>
             </DrawerHeader>
             <Divider/>
             <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
@@ -58,7 +57,7 @@ export const ChatMedia = ({handleDrawerClose, isOpen}) => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                Item One
+                <ImageGrid/>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Item Two
