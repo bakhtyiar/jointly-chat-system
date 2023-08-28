@@ -10,7 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import {TabPanel} from "@/components/TabPanel/TabPanel";
 import React from "react";
 import {tabA11yProps} from "@/utils/a11y";
-import {pt4} from "@/utils/styleVariables";
+import {pt3, pt4} from "@/utils/styleVariables";
 
 
 const DrawerHeader = styled('div')(() => ({
@@ -36,6 +36,7 @@ export const ChatMedia = ({handleDrawerClose, isOpen}) => {
             <DrawerHeader>
                 <Box sx={{
                     width: '100%',
+                    padding: pt3,
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
