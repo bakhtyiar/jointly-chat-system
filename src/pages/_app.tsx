@@ -3,6 +3,7 @@ import type {AppProps} from 'next/app'
 import {createTheme, CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
 import {SessionProvider} from "next-auth/react"
 import {createContext, useMemo, useState} from "react";
+import {grey} from "@mui/material/colors";
 //todo: optimize mui icons package (try to use lazy load or treeshaking idk)
 export const ColorModeContext = createContext({
     toggleColorMode: () => {
@@ -56,9 +57,9 @@ export default function App({Component, pageProps: {session, ...pageProps}}: App
     return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
-                <CssBaseline/>
+                <CssBaseline enableColorScheme/>
                 <SessionProvider session={session}>
-                    <Component {...pageProps}/>
+                        <Component {...pageProps}/>
                 </SessionProvider>
             </ThemeProvider>
         </ColorModeContext.Provider>
