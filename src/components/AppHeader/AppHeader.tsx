@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Box, Button, IconButton, useTheme} from "@mui/material";
+import {Avatar, IconButton} from "@mui/material";
 import Link from "next/link";
 import {routes} from "@/utils/routes";
 import styled from "@emotion/styled";
-import {borderRadius, pt2, pt3, pt4, pt6} from "@/utils/styleVariables";
+import {pt2, pt3, pt4} from "@/utils/styleVariables";
 import {getAllCommunities, ICommunity} from "@/services/communities";
 import {CommunityAppButton} from "@/components/CommunityAppButton/CommunityAppButton";
 import AddIcon from '@mui/icons-material/Add';
@@ -12,7 +12,6 @@ import ExploreIcon from '@mui/icons-material/Explore';
 const StyledHeader = styled.header`
   height: 100%;
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
