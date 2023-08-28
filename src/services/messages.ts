@@ -9,7 +9,7 @@ export interface IMessage {
     "chatId": GUID,
     "creatorId": GUID,
     "textContent": string,
-    "mediaContent": string | null,
+    "mediaContent": string | string[] | null,
     createdAt: Date,
     "editedAt": boolean | Date,
 }
