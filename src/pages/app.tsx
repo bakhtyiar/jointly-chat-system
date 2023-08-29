@@ -26,13 +26,22 @@ const StyledFriendsButton = styled(Button)`
 `
 
 export default function Index() { //page as a link for redirect to initial application route
+    const [openChat, setOpenChat] = React.useState(false);
     const [openMedia, setOpenMedia] = React.useState(false);
 
-    const handleDrawerOpen = () => {
+    const handleChatOpen = () => {
+        setOpenChat(true);
+    };
+
+    const handleChatClose = () => {
+        setOpenChat(false);
+    };
+
+    const handleMediaOpen = () => {
         setOpenMedia(true);
     };
 
-    const handleDrawerClose = () => {
+    const handleMediaClose = () => {
         setOpenMedia(false);
     };
     return (
@@ -55,23 +64,25 @@ export default function Index() { //page as a link for redirect to initial appli
                         }}
                     >
                         <StyledFriendsButton variant="text">Friends</StyledFriendsButton>
-                        <ChatList/>
+                        <ChatList handleChatOpen={handleChatOpen}/>
                     </Box>
-                    <Box
-                        sx={{
-                            height: '100%',
-                            overflowY: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            flexGrow: '1',
-                            padding: '0'
-                        }}
-                    >
-                        <ChatHeader handleDrawerOpen={handleDrawerOpen}/>
-                        <MessagesList/>
-                        <ChatInput/>
-                    </Box>
-                    {openMedia && <ChatMedia handleDrawerClose={handleDrawerClose} isOpen={openMedia}/>}
+                    {openChat && <>
+                        <Box
+                            sx={{
+                                height: '100%',
+                                overflowY: 'hidden',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                flexGrow: '1',
+                                padding: '0'
+                            }}
+                        >
+                            <ChatHeader handleMediaOpen={handleMediaOpen} handleChatClose={handleChatClose}/>
+                            <MessagesList/>
+                            <ChatInput/>
+                        </Box>
+                    </>}
+                    {openMedia && <ChatMedia handleMediaClose={handleMediaClose} isOpen={openMedia}/>}
                 </StyledMain>
             </AppLayout>
         </>

@@ -2,7 +2,7 @@ import {Box, ButtonBase, IconButton, Typography, useTheme} from "@mui/material";
 import {pt2, pt4, pt6} from "@/utils/styleVariables";
 import CloseIcon from '@mui/icons-material/Close';
 
-export const ChatHeader = ({handleDrawerOpen}) => {
+export const ChatHeader = ({handleMediaOpen, handleChatClose}) => {
     const theme = useTheme();
     return (
         <Box sx={{
@@ -29,12 +29,12 @@ export const ChatHeader = ({handleDrawerOpen}) => {
                 '&:hover': {
                     backgroundColor: theme.palette["bgc"].dimmed,
                 },
-            }} onClick={handleDrawerOpen}
+            }} onClick={handleMediaOpen}
             >
                 <Typography variant="subtitle1">Chatname</Typography>
                 <Typography variant="caption">77 users</Typography>
             </ButtonBase>
-            <IconButton><CloseIcon/></IconButton>
+            <IconButton onClick={handleChatClose}><CloseIcon/></IconButton>
         </Box>
     );
 };

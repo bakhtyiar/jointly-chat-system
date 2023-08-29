@@ -23,7 +23,7 @@ const DrawerHeader = styled('div')(() => ({
     justifyContent: 'flex-start',
 }));
 //todo : edit content of component, add grid of images, audios? , etc.
-export const ChatMedia = ({handleDrawerClose, isOpen}) => {
+export const ChatMedia = ({handleMediaClose, isOpen}) => {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -44,7 +44,7 @@ export const ChatMedia = ({handleDrawerClose, isOpen}) => {
                 alignItems: 'center',
             }}>
                 <Typography variant="subtitle1" sx={{paddingLeft: pt4}}>Media</Typography>
-                <IconButton onClick={handleDrawerClose}>
+                <IconButton onClick={handleMediaClose}>
                     <CloseIcon/>
                 </IconButton>
             </DrawerHeader>
