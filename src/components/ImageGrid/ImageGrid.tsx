@@ -5,6 +5,7 @@ export const ImageGrid = () => {
     return (
         <ul style={{
             padding: 0,
+            margin: 0,
             listStyleType: 'none',
             display: 'grid',
             gridTemplateColumns: `repeat(3, ${pt7})`,

@@ -1,6 +1,5 @@
 import {Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {FallbackAvatar} from "@/components/FallbackAvatar/FallbackAvatar";
-import styled from "@emotion/styled";
 
 interface Props {
     creatorId: string,
@@ -9,15 +8,13 @@ interface Props {
     editedAt?: null | boolean | Date
 }
 
-const StyledCard = styled(Card)`
-  border-radius: 0;
-  box-shadow: none;
-`
-
 //todo: add Card element media part (AFTER MAKING INTERACTIVE DB)
 export const Message = ({creatorId, textContent, createdAt, editedAt}: Props) => {
     return (
-        <StyledCard>
+        <Card sx={{
+            borderRadius: 0,
+            boxShadow: 'none'
+        }}>
             <CardHeader
                 avatar={<FallbackAvatar name='random name'/>}
                 title={<Typography variant="subtitle1">creatorId</Typography>}
@@ -26,6 +23,6 @@ export const Message = ({creatorId, textContent, createdAt, editedAt}: Props) =>
                 <Typography variant="body1">{textContent}</Typography>
                 <Typography variant="body2">{editedAt ? `Edited ${editedAt}` : createdAt}</Typography>
             </CardContent>
-        </StyledCard>
+        </Card>
     );
 };
