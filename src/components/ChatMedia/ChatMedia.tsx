@@ -12,6 +12,8 @@ import React from "react";
 import {tabA11yProps} from "@/utils/a11y";
 import {pt3, pt4} from "@/utils/styleVariables";
 import {ImageGrid} from "@/components/ImageGrid/ImageGrid";
+import {AudioStack} from "@/components/AudioStack/AudioStack";
+import {FilesStack} from "@/components/FilesStack/FilesStack";
 
 
 const DrawerHeader = styled('div')(() => ({
@@ -47,26 +49,22 @@ export const ChatMedia = ({handleDrawerClose, isOpen}) => {
                 </IconButton>
             </DrawerHeader>
             <Divider/>
-            <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
+            <Box sx={{borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'center'}}>
                 <Tabs value={value} onChange={handleChange} aria-label="Chat's media" variant="scrollable"
-                      scrollButtons="auto">
+                      scrollButtons="auto" centered>
                     <Tab label="Photo & video" {...tabA11yProps(0)}/>
                     <Tab label="Audio" {...tabA11yProps(1)}/>
                     <Tab label="Files" {...tabA11yProps(2)}/>
-                    <Tab label="Pinned messages" {...tabA11yProps(3)}/>
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
                 <ImageGrid/>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <AudioStack/>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                Item Four
+                <FilesStack/>
             </TabPanel>
             <Divider/>
         </Drawer>
