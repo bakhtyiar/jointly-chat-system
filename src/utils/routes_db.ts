@@ -4,5 +4,14 @@ export const routes_db = {
     },
     pricingOptions: {
         path: "/pricingOptions",
+    },
+    chats: {
+        path: "/chats",
+    },
+    messages: {
+        path: "/messages",
+    },
+    users: {
+        path: "/users",
     }
 }
