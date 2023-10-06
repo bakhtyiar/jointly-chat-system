@@ -3,6 +3,7 @@ import type {AppProps} from 'next/app'
 import {createTheme, CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
 import {SessionProvider} from "next-auth/react"
 import {createContext, useMemo, useState} from "react";
+import {grey} from "@mui/material/colors";
 //todo: optimize mui icons package (try to use lazy load or treeshaking idk)
 export const ColorModeContext = createContext({
     toggleColorMode: () => {
@@ -26,6 +27,28 @@ export default function App({Component, pageProps: {session, ...pageProps}}: App
             createTheme({
                 palette: {
                     mode: mode,
+                    bgc: {
+                        dimmed: mode === 'light' ? grey[100] : grey[900],
+                        contrast: mode === 'light' ? grey[200] : grey[800],
+                    }
+                },
+                components: {
+                    MuiCssBaseline: {
+                        styleOverrides: `
+                        *::-webkit-scrollbar {
+                            width: 4px;
+                        }
+
+                        *::-webkit-scrollbar-track {
+                            background-color: ${mode === 'light' ? grey[200] : grey[800]};
+                        }
+
+                        *::-webkit-scrollbar-thumb {
+                            background-color: ${mode === 'light' ? grey[500] : grey[600]};
+                            border-radius: 3px;
+                        }
+                      `,
+                    },
                 },
             }),
         [mode],
@@ -34,9 +57,9 @@ export default function App({Component, pageProps: {session, ...pageProps}}: App
     return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
-                <CssBaseline/>
+                <CssBaseline enableColorScheme/>
                 <SessionProvider session={session}>
-                    <Component {...pageProps}/>
+                        <Component {...pageProps}/>
                 </SessionProvider>
             </ThemeProvider>
         </ColorModeContext.Provider>

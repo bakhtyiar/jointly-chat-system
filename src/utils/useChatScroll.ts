@@ -6,7 +6,8 @@ export function useChatScroll<T>(dep: T): React.MutableRefObject<HTMLDivElement 
     React.useEffect(() => {
         const { offsetHeight, scrollHeight, scrollTop } = container.current as HTMLDivElement
         if (scrollHeight <= scrollTop + offsetHeight + 100) {
-            container.current?.scrollTo(0, scrollHeight)
+            // noinspection TypeScriptValidateTypes
+            container.current?.scrollTo(0, scrollHeight);
         }
     }, [dep]);
     return container;

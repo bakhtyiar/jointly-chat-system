@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Box, CircularProgress, List, Typography} from "@mui/material";
 import {getMessagesPaged, IMessage} from "@/services/messages";
-import {Message} from "@/components/Message/Message";
+import {Message} from "@/components/Message/message";
 import styled from "@emotion/styled";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {useChatScroll} from "@/utils/useChatScroll";

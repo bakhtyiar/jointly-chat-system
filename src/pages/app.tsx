@@ -7,6 +7,8 @@ import {ChatList} from "@/components/ChatList/ChatList";
 import {MessagesList} from "@/components/MessagesList/MessagesList";
 import {ChatInput} from "@/components/ChatInput/ChatInput";
 import {pt3} from "@/utils/styleVariables";
+import {ChatHeader} from "@/components/ChatHeader/ChatHeader";
+import {ChatMedia} from "@/components/ChatMedia/ChatMedia";
 
 const StyledMain = styled.main`
   justify-content: start;
@@ -24,6 +26,24 @@ const StyledFriendsButton = styled(Button)`
 `
 
 export default function Index() { //page as a link for redirect to initial application route
+    const [openChat, setOpenChat] = React.useState(false);
+    const [openMedia, setOpenMedia] = React.useState(false);
+
+    const handleChatOpen = () => {
+        setOpenChat(true);
+    };
+
+    const handleChatClose = () => {
+        setOpenChat(false);
+    };
+
+    const handleMediaOpen = () => {
+        setOpenMedia(true);
+    };
+
+    const handleMediaClose = () => {
+        setOpenMedia(false);
+    };
     return (
         <>
             <Head>
@@ -44,24 +64,25 @@ export default function Index() { //page as a link for redirect to initial appli
                         }}
                     >
                         <StyledFriendsButton variant="text">Friends</StyledFriendsButton>
-                        <ChatList/>
+                        <ChatList handleChatOpen={handleChatOpen}/>
                     </Box>
-                    <Box
-                        sx={{
-                            height: '100%',
-                            overflowY: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            flexGrow: '1',
-                            padding: '0'
-                        }}
-                    >
-                        <MessagesList/>
-                        <ChatInput/>
-                    </Box>
-                    <Box sx={{width: '300px', bgc: 'red'}}>
-                        future widget
-                    </Box>
+                    {openChat && <>
+                        <Box
+                            sx={{
+                                height: '100%',
+                                overflowY: 'hidden',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                flexGrow: '1',
+                                padding: '0'
+                            }}
+                        >
+                            <ChatHeader handleMediaOpen={handleMediaOpen} handleChatClose={handleChatClose}/>
+                            <MessagesList/>
+                            <ChatInput/>
+                        </Box>
+                    </>}
+                    {openMedia && <ChatMedia handleMediaClose={handleMediaClose} isOpen={openMedia}/>}
                 </StyledMain>
             </AppLayout>
         </>

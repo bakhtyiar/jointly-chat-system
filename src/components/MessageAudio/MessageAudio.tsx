@@ -1,15 +1,15 @@
 import {Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {FallbackAvatar} from "@/components/FallbackAvatar/FallbackAvatar";
+import ReactPlayer from "react-player/lazy";
+import {formatDate} from "@/utils/formatDate";
 
 interface Props {
     creatorId: string,
-    textContent: string,
+    fileUrl: string,
     createdAt: Date,
-    editedAt?: null | boolean | Date
 }
 
-//todo: add Card element media part (AFTER MAKING INTERACTIVE DB)
-export const Message = ({creatorId, textContent, createdAt, editedAt}: Props) => {
+export const MessageAudio = ({creatorId, fileUrl, createdAt}: Props) => {
     return (
         <Card sx={{
             borderRadius: 0,
@@ -18,10 +18,16 @@ export const Message = ({creatorId, textContent, createdAt, editedAt}: Props) =>
             <CardHeader
                 avatar={<FallbackAvatar name='random name'/>}
                 title={<Typography variant="subtitle1">creatorId</Typography>}
+                subheader={formatDate(createdAt || new Date())}
+                sx={{pt: 0, pr: 0, pb: 2, pl: 0}}
             />
-            <CardContent sx={{paddingTop: 0}}>
-                <Typography variant="body1">{textContent}</Typography>
-                <Typography variant="body2">{editedAt ? `Edited ${editedAt}` : createdAt}</Typography>
+            <CardContent sx={{padding: 0}}>
+                <ReactPlayer
+                    url={fileUrl}
+                    controls
+                    height="54px"
+                    width="100%"
+                    />
             </CardContent>
         </Card>
     );
